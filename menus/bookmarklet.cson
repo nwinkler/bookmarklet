@@ -1,0 +1,16 @@
+# See https://atom.io/docs/latest/creating-a-package#menus for more details
+'context-menu':
+  '.overlayer':
+      'Enable bookmarklet': 'bookmarklet:toggle'
+
+'menu': [
+  {
+    'label': 'Packages'
+    'submenu': [
+      'label': 'bookmarklet'
+      'submenu': [
+        { 'label': 'Toggle', 'command': 'bookmarklet:toggle' }
+      ]
+    ]
+  }
+]
