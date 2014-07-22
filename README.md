@@ -23,5 +23,4 @@ javascript:(function(){var div=document.createElement("div");div.setAttribute("f
 # TODO
 
 * Offer to include jQuery
-* Avoid inserting strange character into the editor after pressing Ctrl-Alt-B
 * Unit tests
