@@ -1,5 +1,5 @@
 {
-  "name": "Bookmarklet",
+  "name": "bookmarklet",
   "main": "./lib/bookmarklet",
   "version": "0.0.0",
   "description": "Creates a shortened bookmarklet from your JavaScript code",
