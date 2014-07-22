@@ -7,6 +7,8 @@ module.exports =
 
   activate: (state) ->
     @bookmarkletView = new BookmarkletView(state.bookmarkletViewState)
+    @header = 'javascript:(function(){';
+    @footer = '})();';
     atom.workspaceView.command "bookmarklet:create", => @create()
 
   deactivate: ->
@@ -21,12 +23,16 @@ module.exports =
 
     if grammar.name is 'JavaScript'
       content = editor.getText()
-      header = 'javascript:(function(){';
-      footer = '})();';
+
+      # Call uglify to get rid of spaces, new lines, etc.
       ug = uglify.minify(content, { fromString: true })
-      out = header + ug.code + footer;
-      # editor.insertText(out)
+      out = @header + ug.code + @footer;
+
+      # Copy the text to the clipboard
       atom.clipboard.write(out)
+
+      # Show a message to the user
       @bookmarkletView.show('Copied bookmarklet to the clipboard')
     else
+      # Show a message to the user
       @bookmarkletView.show('Bookmarklet only works for JavaScript files')
