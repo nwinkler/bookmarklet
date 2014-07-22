@@ -4,10 +4,7 @@ module.exports =
 class BookmarkletView extends View
   @content: ->
     @div class: 'bookmarklet overlay from-top', =>
-      @div "Bookmarklet has been copied to the system clipboard", class: "message"
-
-  initialize: (serializeState) ->
-    atom.workspaceView.command "bookmarklet:create", => @create()
+      @div outlet: "message", class: "message"
 
   # Returns an object that can be retrieved when package is activated
   serialize: ->
@@ -16,10 +13,12 @@ class BookmarkletView extends View
   destroy: ->
     @detach()
 
-  create: ->
+  show: (pMessage) ->
     if @hasParent()
       @detach()
     else
+      @message.text pMessage
+
       atom.workspaceView.append(this)
 
       setTimeout(=>

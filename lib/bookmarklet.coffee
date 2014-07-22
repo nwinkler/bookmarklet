@@ -27,6 +27,6 @@ module.exports =
       out = header + ug.code + footer;
       # editor.insertText(out)
       atom.clipboard.write(out)
-      #alert('Copied bookmarklet to the clipboard')
-    #else
-      #alert('Bookmarklet only works for JavaScript files')
+      @bookmarkletView.show('Copied bookmarklet to the clipboard')
+    else
+      @bookmarkletView.show('Bookmarklet only works for JavaScript files')
