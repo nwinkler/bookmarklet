@@ -3,12 +3,15 @@
   "main": "./lib/bookmarklet",
   "version": "0.0.0",
   "description": "Creates a shortened bookmarklet from your JavaScript code",
-  "activationEvents": ["bookmarklet:create"],
+  "activationEvents": [
+    "bookmarklet:create"
+  ],
   "repository": "https://github.com/atom/bookmarklet",
   "license": "MIT",
   "engines": {
     "atom": ">0.50.0"
   },
   "dependencies": {
+    "uglify-js": "^2.4.15"
   }
 }
