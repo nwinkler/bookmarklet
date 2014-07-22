@@ -7,8 +7,10 @@ module.exports =
 
   activate: (state) ->
     @bookmarkletView = new BookmarkletView(state.bookmarkletViewState)
-    @header = 'javascript:(function(){';
-    @footer = '})();';
+    @linkPrefix = '<a href=\''
+    @linkSuffix = '\'>Click Me</a>'
+    @header = 'javascript:(function(){'
+    @footer = '})();'
     atom.workspaceView.command "bookmarklet:create", => @create()
 
   deactivate: ->
@@ -26,7 +28,7 @@ module.exports =
 
       # Call uglify to get rid of spaces, new lines, etc.
       ug = uglify.minify(content, { fromString: true })
-      out = @header + ug.code + @footer;
+      out = @linkPrefix + @header + ug.code + @footer + @linkSuffix;
 
       # Copy the text to the clipboard
       atom.clipboard.write(out)
