@@ -9,3 +9,4 @@ module.exports =
     footer = '}();';
     out = header + encodeURIComponent(content) + footer;
     editor.insertText(out)
+    atom.clipboard.write(out)

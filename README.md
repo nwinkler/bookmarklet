@@ -6,7 +6,7 @@ Creates a shortened bookmarklet from your JavaScript code.
 
 # TODO
 
-* Check for file type JavaScript
-* Copy the bookmarklet to the clipboard
+* Check for file type/grammar JavaScript
+* Show a message after creating the bookmarklet
 * Uglify the bookmarklet code
 * Offer to include jQuery
