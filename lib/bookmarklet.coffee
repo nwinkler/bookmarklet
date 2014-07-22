@@ -1,8 +1,19 @@
+BookmarkletView = require './bookmarklet-view'
+
 uglify = require 'uglify-js'
 
 module.exports =
-  activate: ->
+  bookmarkletView: null
+
+  activate: (state) ->
+    @bookmarkletView = new BookmarkletView(state.bookmarkletViewState)
     atom.workspaceView.command "bookmarklet:create", => @create()
+
+  deactivate: ->
+    @bookmarkletView.destroy()
+
+  serialize: ->
+    bookmarkletViewState: @bookmarkletView.serialize()
 
   create: ->
     editor = atom.workspace.activePaneItem
