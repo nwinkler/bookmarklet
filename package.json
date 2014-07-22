@@ -1,7 +1,7 @@
 {
   "name": "bookmarklet",
   "main": "./lib/bookmarklet",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Creates a shortened bookmarklet from your JavaScript code",
   "activationEvents": [
     "bookmarklet:create"
