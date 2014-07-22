@@ -6,7 +6,7 @@
   "activationEvents": [
     "bookmarklet:create"
   ],
-  "repository": "https://github.com/atom/bookmarklet",
+  "repository": "https://github.com/nwinkler/bookmarklet",
   "license": "MIT",
   "engines": {
     "atom": ">0.50.0"
