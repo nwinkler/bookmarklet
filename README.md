@@ -22,6 +22,5 @@ javascript:(function(){var div=document.createElement("div");div.setAttribute("f
 
 # TODO
 
-* Check for file type/grammar JavaScript
-* Show a message after creating the bookmarklet
 * Offer to include jQuery
+* Avoid inserting strange character into the editor after pressing Ctrl-Alt-B
