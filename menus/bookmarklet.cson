@@ -7,9 +7,9 @@
   {
     'label': 'Packages'
     'submenu': [
-      'label': 'bookmarklet'
+      'label': 'Bookmarklet'
       'submenu': [
-        { 'label': 'Toggle', 'command': 'bookmarklet:toggle' }
+        { 'label': 'Create', 'command': 'bookmarklet:create' }
       ]
     ]
   }

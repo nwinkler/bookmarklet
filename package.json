@@ -1,9 +1,9 @@
 {
-  "name": "bookmarklet",
+  "name": "Bookmarklet",
   "main": "./lib/bookmarklet",
   "version": "0.0.0",
   "description": "A short description of your package",
-  "activationEvents": ["bookmarklet:toggle"],
+  "activationEvents": ["bookmarklet:create"],
   "repository": "https://github.com/atom/bookmarklet",
   "license": "MIT",
   "engines": {

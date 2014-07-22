@@ -1,13 +1,6 @@
-BookmarkletView = require './bookmarklet-view'
-
 module.exports =
-  bookmarkletView: null
+  activate: ->
+    atom.workspaceView.command "bookmarklet:create", => @create()
 
-  activate: (state) ->
-    @bookmarkletView = new BookmarkletView(state.bookmarkletViewState)
-
-  deactivate: ->
-    @bookmarkletView.destroy()
-
-  serialize: ->
-    bookmarkletViewState: @bookmarkletView.serialize()
+  create: ->
+    editor = atom.workspace.activePaneItem
