@@ -32,7 +32,7 @@ module.exports =
       atom.clipboard.write(out)
 
       # Show a message to the user
-      @bookmarkletView.show('Copied bookmarklet to the clipboard')
+      @bookmarkletView.show('Copied bookmarklet to the clipboard', 'ok')
     else
       # Show a message to the user
-      @bookmarkletView.show('Bookmarklet only works for JavaScript files')
+      @bookmarkletView.show('Bookmarklet only works for JavaScript files', 'error')
