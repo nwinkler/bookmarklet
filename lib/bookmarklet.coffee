@@ -4,3 +4,8 @@ module.exports =
 
   create: ->
     editor = atom.workspace.activePaneItem
+    content = editor.getText()
+    header = 'javascript:function(){';
+    footer = '}();';
+    out = header + encodeURIComponent(content) + footer;
+    editor.insertText(out)
