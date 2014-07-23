@@ -22,7 +22,16 @@ Pressing `Ctrl-Alt-B` will generate the following bookmarklet:
 javascript:(function(){var div=document.createElement("div");div.setAttribute("foo","bar"),document.body.appendChild(div);})();
 ```
 
+## Install
+
+Command Line:
+
+```
+apm install bookmarklet
+```
+
 # TODO
 
 * Offer to include jQuery
+* Create a clickable link with the bookmarklet code, ready for pasting into your HTML file
 * Unit tests
