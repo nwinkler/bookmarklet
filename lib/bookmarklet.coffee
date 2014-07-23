@@ -11,7 +11,8 @@ module.exports =
     @linkSuffix = '\">Click Me</a>'
     @header = 'javascript:(function(){'
     @footer = '})();'
-    atom.workspaceView.command "bookmarklet:createJS", => @createJS()
+    atom.workspaceView.command "bookmarklet:create-javaScript", => @createJS()
+    atom.workspaceView.command "bookmarklet:create-link", => @createLink()
 
   deactivate: ->
     @bookmarkletView.destroy()
@@ -20,6 +21,11 @@ module.exports =
     bookmarkletViewState: @bookmarkletView.serialize()
 
   createJS: ->
+    @create( { link: false } )
+  createLink: ->
+    @create( { link: true } )
+
+  create: (options) ->
     editor = atom.workspace.activePaneItem
     grammar = editor.getGrammar()
 
@@ -28,7 +34,16 @@ module.exports =
 
       # Call uglify to get rid of spaces, new lines, etc.
       ug = uglify.minify(content, { fromString: true })
-      out = @linkPrefix + @header + encodeURIComponent(ug.code) + @footer + @linkSuffix;
+
+      out = ''
+
+      if options && options.link
+        out = @linkPrefix
+
+      out = out + @header + encodeURIComponent(ug.code) + @footer
+
+      if options && options.link
+        out = out + @linkSuffix
 
       # Copy the text to the clipboard
       atom.clipboard.write(out)

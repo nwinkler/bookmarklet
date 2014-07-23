@@ -5,7 +5,8 @@
     'submenu': [
       'label': 'Bookmarklet'
       'submenu': [
-        { 'label': 'Create JavaScript', 'command': 'bookmarklet:createJS' }
+        { 'label': 'Create HTML Link', 'command': 'bookmarklet:create-link' },
+        { 'label': 'Create JavaScript', 'command': 'bookmarklet:create-javaScript' }
       ]
     ]
   }
