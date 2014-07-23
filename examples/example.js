@@ -1,4 +1,5 @@
 var div = document.createElement('div');
 div.setAttribute('foo', 'bar');
-div.innerHTML = 'This was added using the Bookmarklet!';
+var text = document.createTextNode("This was added using the Bookmarklet!");
+div.appendChild(text);
 document.body.appendChild(div);

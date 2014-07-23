@@ -5,6 +5,6 @@
   <body>
     <p>Click the button</p>
 
-    <a href='javascript:(function(){var div=document.createElement("div");div.setAttribute("foo","bar"),div.innerHTML="This was added using the Bookmarklet!",document.body.appendChild(div);})();'>Click Me</a>
+    <a href='javascript:(function(){var div=document.createElement("div");div.setAttribute("foo","bar");var text=document.createTextNode("This was added using the Bookmarklet!");div.appendChild(text),document.body.appendChild(div);})();'>Click Me</a>
   </body>
 </html>
