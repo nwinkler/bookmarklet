@@ -1,3 +1,8 @@
+## 0.4.0
+* Encoding the generated bookmarklet to avoid issues with special characters like quotes when using the bookmarklet from a link
+* The `Ctrl-Alt-B` shortcut now creates an HTML link ('Click Me') with the bookmarklet code.
+* The existing functionality (simply creating the JavaScript function) is still available from the menu or from the command palette (_Bookmarklet: Create JavaScript_).
+
 ## 0.3.0
 * Showing a message after copying the bookmarklet to the clipboard.
 
