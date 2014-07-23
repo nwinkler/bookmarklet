@@ -1,9 +1,12 @@
 <html>
   <head>
     <title>Bookmarklet example</title>
+    <style type="text/css">
+      body { font-family: arial; }
+    </style>
   </head>
   <body>
-    <p>Click the button</p>
+    <h1>Click the button</h1>
 
     <a href="javascript:(function(){var%20div%3Ddocument.createElement(%22div%22)%3Bdiv.setAttribute(%22foo%22%2C%22bar%22)%3Bvar%20text%3Ddocument.createTextNode(%22This%20was%20added%20using%20the%20'Bookmarklet'%20%26%20Atom.io%3F!%22)%3Bdiv.appendChild(text)%2Cdocument.body.appendChild(div)%3B})();">Click Me</a>
   </body>
