@@ -34,4 +34,6 @@ apm install bookmarklet
 
 * Offer to include jQuery
 * Create a clickable link with the bookmarklet code, ready for pasting into your HTML file
+* Fix quoting issues when creating link
+* Option to mangle code instead of just minifying it
 * Unit tests
