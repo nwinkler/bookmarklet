@@ -1,15 +1,11 @@
 # See https://atom.io/docs/latest/creating-a-package#menus for more details
-'context-menu':
-  '.overlayer':
-      'Enable bookmarklet': 'bookmarklet:toggle'
-
 'menu': [
   {
     'label': 'Packages'
     'submenu': [
       'label': 'Bookmarklet'
       'submenu': [
-        { 'label': 'Create', 'command': 'bookmarklet:create' }
+        { 'label': 'Create JavaScript', 'command': 'bookmarklet:createJS' }
       ]
     ]
   }

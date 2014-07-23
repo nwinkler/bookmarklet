@@ -4,7 +4,7 @@
   "version": "0.3.0",
   "description": "Creates a shortened bookmarklet from your JavaScript code",
   "activationEvents": [
-    "bookmarklet:create"
+    "bookmarklet:createJS"
   ],
   "repository": "https://github.com/nwinkler/bookmarklet",
   "license": "MIT",

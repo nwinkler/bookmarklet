@@ -11,7 +11,7 @@ module.exports =
     @linkSuffix = '\">Click Me</a>'
     @header = 'javascript:(function(){'
     @footer = '})();'
-    atom.workspaceView.command "bookmarklet:create", => @create()
+    atom.workspaceView.command "bookmarklet:createJS", => @createJS()
 
   deactivate: ->
     @bookmarkletView.destroy()
@@ -19,7 +19,7 @@ module.exports =
   serialize: ->
     bookmarkletViewState: @bookmarkletView.serialize()
 
-  create: ->
+  createJS: ->
     editor = atom.workspace.activePaneItem
     grammar = editor.getGrammar()
 
