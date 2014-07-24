@@ -15,6 +15,7 @@ module.exports =
     @linkSuffix = '\">Click Me</a>'
     @header = 'javascript:(function(){'
     @footer = '})();'
+    @jQueryURL = '//ajax.googleapis.com/ajax/libs/jquery/1/jquery.js'
     atom.workspaceView.command "bookmarklet:create-javaScript", => @createJS()
     atom.workspaceView.command "bookmarklet:create-link", => @createLink()
 
@@ -39,8 +40,15 @@ module.exports =
     if grammar.name is 'JavaScript'
       content = editor.getText()
 
+      code = 'var __hasjq = function () {' + content + '};' +
+        'if (window.jQuery) __hasjq(); else {' +
+        'var s = document.createElement("script");' +
+        's.src = "' + @jQueryURL + '";' +
+        's.onload = __hasjq;' +
+        'document.body.appendChild(s);}';
+
       # Call uglify to get rid of spaces, new lines, etc.
-      ug = uglify.minify(content, { fromString: true })
+      ug = uglify.minify(code, { fromString: true })
 
       out = ''
 
