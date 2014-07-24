@@ -8,6 +8,7 @@ module.exports =
 
   configDefaults:
     includeJquery: false
+    jqueryVersion: '1'
 
   activate: (state) ->
     @bookmarkletView = new BookmarkletView(state.bookmarkletViewState)
@@ -15,12 +16,15 @@ module.exports =
     @linkSuffix = '\">Click Me</a>'
     @header = 'javascript:(function(){'
     @footer = '})();'
-    @jQueryURL = '//ajax.googleapis.com/ajax/libs/jquery/1/jquery.js'
+    @jqueryFile = '/jquery.min.js'
+    @jqueryURL = '//ajax.googleapis.com/ajax/libs/jquery/'
     atom.workspaceView.command "bookmarklet:create-javaScript", => @createJS()
     atom.workspaceView.command "bookmarklet:create-link", => @createLink()
 
     atom.config.observe 'bookmarklet.includeJquery', callNow:true, (value) =>
       @includeJquery = value
+    atom.config.observe 'bookmarklet.jqueryVersion', callNow:true, (value) =>
+      @jqueryVersion = value
 
   deactivate: ->
     @bookmarkletView.destroy()
@@ -40,11 +44,14 @@ module.exports =
     if grammar.name is 'JavaScript'
       content = editor.getText()
 
+
       if @includeJquery
+        jqueryToUse = @jqueryURL + @jqueryVersion + @jqueryFile
+
         code = 'var __hasjq = function () {' + content + '};' +
           'if (window.jQuery) __hasjq(); else {' +
           'var s = document.createElement("script");' +
-          's.src = "' + @jQueryURL + '";' +
+          's.src = "' + jqueryToUse + '";' +
           's.onload = __hasjq;' +
           'document.body.appendChild(s);}';
       else
