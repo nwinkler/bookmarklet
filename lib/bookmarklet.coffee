@@ -4,10 +4,10 @@ uglify = require 'uglify-js'
 
 module.exports =
   bookmarkletView: null
-  includeJQuery: false
+  includeJquery: false
 
   configDefaults:
-    includeJQuery: false
+    includeJquery: false
 
   activate: (state) ->
     @bookmarkletView = new BookmarkletView(state.bookmarkletViewState)
@@ -17,6 +17,9 @@ module.exports =
     @footer = '})();'
     atom.workspaceView.command "bookmarklet:create-javaScript", => @createJS()
     atom.workspaceView.command "bookmarklet:create-link", => @createLink()
+
+    atom.config.observe 'bookmarklet.includeJquery', callNow:true, (value) =>
+      @includeJquery = value
 
   deactivate: ->
     @bookmarkletView.destroy()
