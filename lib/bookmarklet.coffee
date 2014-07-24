@@ -4,6 +4,10 @@ uglify = require 'uglify-js'
 
 module.exports =
   bookmarkletView: null
+  includeJQuery: false
+
+  configDefaults:
+    includeJQuery: false
 
   activate: (state) ->
     @bookmarkletView = new BookmarkletView(state.bookmarkletViewState)
