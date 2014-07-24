@@ -9,6 +9,7 @@ module.exports =
   configDefaults:
     includeJquery: false
     jqueryVersion: '1'
+    useMinifiedJquery: true
 
   activate: (state) ->
     @bookmarkletView = new BookmarkletView(state.bookmarkletViewState)
@@ -16,7 +17,8 @@ module.exports =
     @linkSuffix = '\">Click Me</a>'
     @header = 'javascript:(function(){'
     @footer = '})();'
-    @jqueryFile = '/jquery.min.js'
+    @jqueryFile = '/jquery.js'
+    @jqueryMinFile = '/jquery.min.js'
     @jqueryURL = '//ajax.googleapis.com/ajax/libs/jquery/'
     atom.workspaceView.command "bookmarklet:create-javaScript", => @createJS()
     atom.workspaceView.command "bookmarklet:create-link", => @createLink()
@@ -25,6 +27,8 @@ module.exports =
       @includeJquery = value
     atom.config.observe 'bookmarklet.jqueryVersion', callNow:true, (value) =>
       @jqueryVersion = value
+    atom.config.observe 'bookmarklet.useMinifiedJquery', callNow:true, (value) =>
+      @useMinifiedJquery = value
 
   deactivate: ->
     @bookmarkletView.destroy()
@@ -46,7 +50,12 @@ module.exports =
 
 
       if @includeJquery
-        jqueryToUse = @jqueryURL + @jqueryVersion + @jqueryFile
+        jqueryToUse = @jqueryURL + @jqueryVersion
+
+        if @useMinifiedJquery
+          jqueryToUse += @jqueryMinFile
+        else
+          jqueryToUse += @jqueryFile
 
         code = 'var __hasjq = function () {' + content + '};' +
           'if (window.jQuery) __hasjq(); else {' +
