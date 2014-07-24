@@ -1,3 +1,6 @@
+## 0.5.0
+* Added option to load jQuery in the generated bookmarklet. The code for including jQuery was reused from https://github.com/chriszarate/bookmarkleter.
+
 ## 0.4.0
 * Encoding the generated bookmarklet to avoid issues with special characters like quotes when using the bookmarklet from a link
 * The `Ctrl-Alt-B` shortcut now creates an HTML link ('Click Me') with the bookmarklet code.

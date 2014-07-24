@@ -40,12 +40,15 @@ module.exports =
     if grammar.name is 'JavaScript'
       content = editor.getText()
 
-      code = 'var __hasjq = function () {' + content + '};' +
-        'if (window.jQuery) __hasjq(); else {' +
-        'var s = document.createElement("script");' +
-        's.src = "' + @jQueryURL + '";' +
-        's.onload = __hasjq;' +
-        'document.body.appendChild(s);}';
+      if @includeJquery
+        code = 'var __hasjq = function () {' + content + '};' +
+          'if (window.jQuery) __hasjq(); else {' +
+          'var s = document.createElement("script");' +
+          's.src = "' + @jQueryURL + '";' +
+          's.onload = __hasjq;' +
+          'document.body.appendChild(s);}';
+      else
+        code = content
 
       # Call uglify to get rid of spaces, new lines, etc.
       ug = uglify.minify(code, { fromString: true })
