@@ -20,7 +20,7 @@ Configuration options can be used to specify which version of jQuery to use, and
 
 Give this code in your current editor
 
-```
+```javascript
 var div = document.createElement('div');
 div.setAttribute('foo', 'bar');
 var text = document.createTextNode("This was added using the 'Bookmarklet' & Atom.io?!");
