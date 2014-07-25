@@ -1,3 +1,6 @@
+## 0.5.1
+* Improved documentation, mainly formatting.
+
 ## 0.5.0
 * Added commands to include/load jQuery in the generated bookmarklet. The code for including jQuery was reused from https://github.com/chriszarate/bookmarkleter.
 * Added option to use minified or unminified jQuery library.
