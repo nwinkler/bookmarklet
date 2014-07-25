@@ -30,7 +30,7 @@ document.body.appendChild(div);
 
 Pressing `Ctrl-Alt-B` will generate the following bookmarklet:
 
-```
+```html
 <a href="javascript:(function(){var%20div%3Ddocument.createElement(%22div%22)%3Bdiv.setAttribute(%22foo%22%2C%22bar%22)%3Bvar%20text%3Ddocument.createTextNode(%22This%20was%20added%20using%20the%20'Bookmarklet'%20%26%20Atom.io%3F!%22)%3Bdiv.appendChild(text)%2Cdocument.body.appendChild(div)%3B})();">Click Me</a>
 ```
 
@@ -45,7 +45,7 @@ The package's configuration page has the following options. The _jQuery_ options
 
 ### Command Line
 
-```
+```bash
 apm install bookmarklet
 ```
 
