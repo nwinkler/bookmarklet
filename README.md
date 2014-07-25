@@ -38,13 +38,16 @@ The package's configuration page has the following options. The _jQuery_ options
 
 ## Install
 
-Command Line:
+### Command Line
 
 ```
 apm install bookmarklet
 ```
 
+### Atom
+
+Open the Atom settings/preferences, then select the _Packages_ entry and search for _Bookmarklet_ using the search field. In the results, click the _Install_ button of the _Bookmarklet_ package.
+
 # TODO
 
-* Offer to include jQuery
 * Unit tests
