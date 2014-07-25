@@ -9,7 +9,9 @@
   "description": "Creates a shortened bookmarklet from your JavaScript code",
   "activationEvents": [
     "bookmarklet:create-link",
-    "bookmarklet:create-javaScript"
+    "bookmarklet:create-link-with-jquery",
+    "bookmarklet:create-javaScript",
+    "bookmarklet:create-javaScript-with-jquery"
   ],
   "repository": {
     "type": "git",

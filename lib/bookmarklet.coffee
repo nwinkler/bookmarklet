@@ -4,10 +4,8 @@ uglify = require 'uglify-js'
 
 module.exports =
   bookmarkletView: null
-  includeJquery: false
 
   configDefaults:
-    includeJquery: false
     jqueryVersion: '1'
     useMinifiedJquery: true
 
@@ -20,11 +18,11 @@ module.exports =
     @jqueryFile = '/jquery.js'
     @jqueryMinFile = '/jquery.min.js'
     @jqueryURL = '//ajax.googleapis.com/ajax/libs/jquery/'
-    atom.workspaceView.command "bookmarklet:create-javaScript", => @createJS()
-    atom.workspaceView.command "bookmarklet:create-link", => @createLink()
+    atom.workspaceView.command "bookmarklet:create-javaScript", => @createJS(false)
+    atom.workspaceView.command "bookmarklet:create-link", => @createLink(false)
+    atom.workspaceView.command "bookmarklet:create-javaScript-with-jquery", => @createJS(true)
+    atom.workspaceView.command "bookmarklet:create-link-with-jquery", => @createLink(true)
 
-    atom.config.observe 'bookmarklet.includeJquery', callNow:true, (value) =>
-      @includeJquery = value
     atom.config.observe 'bookmarklet.jqueryVersion', callNow:true, (value) =>
       @jqueryVersion = value
     atom.config.observe 'bookmarklet.useMinifiedJquery', callNow:true, (value) =>
@@ -36,10 +34,10 @@ module.exports =
   serialize: ->
     bookmarkletViewState: @bookmarkletView.serialize()
 
-  createJS: ->
-    @create( { link: false } )
-  createLink: ->
-    @create( { link: true } )
+  createJS: (jquery) ->
+    @create( { link: false, jquery: jquery } )
+  createLink: (jquery) ->
+    @create( { link: true, jquery: jquery } )
 
   create: (options) ->
     editor = atom.workspace.activePaneItem
@@ -49,7 +47,7 @@ module.exports =
       content = editor.getText()
 
 
-      if @includeJquery
+      if options.jquery
         jqueryToUse = @jqueryURL + @jqueryVersion
 
         if @useMinifiedJquery
@@ -71,7 +69,7 @@ module.exports =
 
       out = ''
 
-      if options && options.link
+      if options.link
         out = @linkPrefix
 
       out = out + @header + encodeURIComponent(ug.code) + @footer
