@@ -1,5 +1,5 @@
 ## 0.5.0
-* Added option to load jQuery in the generated bookmarklet. The code for including jQuery was reused from https://github.com/chriszarate/bookmarkleter.
+* Added commands to include/load jQuery in the generated bookmarklet. The code for including jQuery was reused from https://github.com/chriszarate/bookmarkleter.
 * Added option to use minified or unminified jQuery library.
 
 ## 0.4.0
