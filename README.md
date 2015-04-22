@@ -18,7 +18,7 @@ Configuration options can be used to specify which version of jQuery to use, and
 
 ## Example
 
-Give this code in your current editor
+Given this code in your current editor
 
 ```javascript
 var div = document.createElement('div');
