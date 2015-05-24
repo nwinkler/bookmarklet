@@ -18,10 +18,18 @@ module.exports =
     @jqueryFile = '/jquery.js'
     @jqueryMinFile = '/jquery.min.js'
     @jqueryURL = '//ajax.googleapis.com/ajax/libs/jquery/'
-    atom.workspaceView.command "bookmarklet:create-javaScript", => @createJS(false)
-    atom.workspaceView.command "bookmarklet:create-link", => @createLink(false)
-    atom.workspaceView.command "bookmarklet:create-javaScript-with-jquery", => @createJS(true)
-    atom.workspaceView.command "bookmarklet:create-link-with-jquery", => @createLink(true)
+    atom.commands.add 'atom-workspace',
+      'bookmarklet:create-javaScript': =>
+        @createJS(false)
+
+      'bookmarklet:create-link': =>
+        @createLink(false)
+
+      'bookmarklet:create-javaScript-with-jquery': =>
+        @createJS(true)
+
+      'bookmarklet:create-link-with-jquery': =>
+        @createLink(true)
 
     atom.config.observe 'bookmarklet.jqueryVersion', callNow:true, (value) =>
       @jqueryVersion = value
