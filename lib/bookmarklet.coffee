@@ -3,11 +3,17 @@ BookmarkletView = require './bookmarklet-view'
 uglify = require 'uglify-js'
 
 module.exports =
-  bookmarkletView: null
+  config:
+    jqueryVersion:
+      type: 'string'
+      default: '1'
+      title: 'jQuery Version'
+    useMinifiedJquery:
+      type: 'boolean'
+      default: true
+      title: 'Use Minified jQuery'
 
-  configDefaults:
-    jqueryVersion: '1'
-    useMinifiedJquery: true
+  bookmarkletView: null
 
   activate: (state) ->
     @bookmarkletView = new BookmarkletView(state.bookmarkletViewState)
