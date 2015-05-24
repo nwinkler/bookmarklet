@@ -29,8 +29,14 @@ class BookmarkletView extends View
 
       @message.text pMessage
 
-      atom.workspaceView.append(this)
+      @panel ?= atom.workspace.addModalPanel(item: this)
+      @panel.show()
 
       setTimeout(=>
-        @detach()
+        @close()
       , 2000)
+
+  close: ->
+    panelToDestroy = @panel
+    @panel = null
+    panelToDestroy?.destroy()
