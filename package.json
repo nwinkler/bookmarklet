@@ -7,12 +7,14 @@
   "version": "0.5.1",
   "private": true,
   "description": "Creates a shortened bookmarklet from your JavaScript code, optionally including the jQuery library.",
-  "activationEvents": [
-    "bookmarklet:create-link",
-    "bookmarklet:create-link-with-jquery",
-    "bookmarklet:create-javaScript",
-    "bookmarklet:create-javaScript-with-jquery"
-  ],
+  "activationCommands": {
+    "atom-workspace": [
+      "bookmarklet:create-link",
+      "bookmarklet:create-link-with-jquery",
+      "bookmarklet:create-javaScript",
+      "bookmarklet:create-javaScript-with-jquery"
+    ]
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/nwinkler/bookmarklet"
