@@ -49,7 +49,7 @@ module.exports =
     @create( { link: true, jquery: jquery } )
 
   create: (options) ->
-    editor = atom.workspace.activePaneItem
+    editor = atom.workspace.getActivePaneItem()
     grammar = editor.getGrammar()
 
     if grammar.name is 'JavaScript'
