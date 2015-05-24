@@ -31,10 +31,11 @@ module.exports =
       'bookmarklet:create-link-with-jquery': =>
         @createLink(true)
 
-    atom.config.observe 'bookmarklet.jqueryVersion', callNow:true, (value) =>
-      @jqueryVersion = value
-    atom.config.observe 'bookmarklet.useMinifiedJquery', callNow:true, (value) =>
-      @useMinifiedJquery = value
+    atom.config.onDidChange 'bookmarklet.jqueryVersion', ({newValue, oldValue}) =>
+      @jqueryVersion = newValue
+
+    atom.config.onDidChange 'bookmarklet.useMinifiedJquery', ({newValue, oldValue}) =>
+      @useMinifiedJquery = newValue
 
   deactivate: ->
     @bookmarkletView.destroy()
