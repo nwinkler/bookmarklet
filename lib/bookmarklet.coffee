@@ -25,16 +25,19 @@ module.exports =
     @jqueryMinFile = '/jquery.min.js'
     @jqueryURL = '//ajax.googleapis.com/ajax/libs/jquery/'
 
-    atom.commands.add 'atom-workspace',
+    atom.commands.add 'atom-text-editor',
       'bookmarklet:create-javaScript': =>
         @createJS(false)
 
+    atom.commands.add 'atom-text-editor',
       'bookmarklet:create-link': =>
         @createLink(false)
 
+    atom.commands.add 'atom-text-editor',
       'bookmarklet:create-javaScript-with-jquery': =>
         @createJS(true)
 
+    atom.commands.add 'atom-text-editor',
       'bookmarklet:create-link-with-jquery': =>
         @createLink(true)
 
