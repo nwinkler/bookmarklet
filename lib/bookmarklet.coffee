@@ -24,6 +24,7 @@ module.exports =
     @jqueryFile = '/jquery.js'
     @jqueryMinFile = '/jquery.min.js'
     @jqueryURL = '//ajax.googleapis.com/ajax/libs/jquery/'
+
     atom.commands.add 'atom-workspace',
       'bookmarklet:create-javaScript': =>
         @createJS(false)
@@ -40,8 +41,12 @@ module.exports =
     atom.config.onDidChange 'bookmarklet.jqueryVersion', ({newValue, oldValue}) =>
       @jqueryVersion = newValue
 
+    @jqueryVersion = atom.config.get 'bookmarklet.jqueryVersion'
+
     atom.config.onDidChange 'bookmarklet.useMinifiedJquery', ({newValue, oldValue}) =>
       @useMinifiedJquery = newValue
+
+    @useMinifiedJquery = atom.config.get 'bookmarklet.useMinifiedJquery'
 
   deactivate: ->
     @bookmarkletView.destroy()
@@ -60,7 +65,6 @@ module.exports =
 
     if grammar.name is 'JavaScript'
       content = editor.getText()
-
 
       if options.jquery
         jqueryToUse = @jqueryURL + @jqueryVersion
