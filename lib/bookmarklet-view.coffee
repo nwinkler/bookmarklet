@@ -16,25 +16,22 @@ class BookmarkletView extends View
     @detach()
 
   show: (pMessage, pStatus) ->
-    if @hasParent()
-      @detach()
-    else
-      switch pStatus
-        when 'ok'
-          @status.attr('class', 'icon-check padded text-success')
-          @message.attr('class', 'message text-success')
-        when 'error'
-          @status.attr('class', 'icon-stop padded text-error')
-          @message.attr('class', 'message text-error')
+    switch pStatus
+      when 'ok'
+        @status.attr('class', 'icon-check padded text-success')
+        @message.attr('class', 'message text-success')
+      when 'error'
+        @status.attr('class', 'icon-stop padded text-error')
+        @message.attr('class', 'message text-error')
 
-      @message.text pMessage
+    @message.text pMessage
 
-      @panel ?= atom.workspace.addModalPanel(item: this)
-      @panel.show()
+    @panel ?= atom.workspace.addModalPanel(item: this)
+    @panel.show()
 
-      setTimeout(=>
-        @close()
-      , 2000)
+    setTimeout(=>
+      @close()
+    , 2000)
 
   close: ->
     panelToDestroy = @panel
