@@ -10,9 +10,9 @@ In addition to the option of generating a link, the `Bookmarklet: Create JavaScr
 
 ## Including jQuery
 
-Two additional commands (`Bookmarklet: Create Link With Jquery` and `Bookmarklet: Create JavaScript With Jquery`) can be used to create the respective HTML link or just the JavaScript code with the additional feature or loading the jQuery library if it's not already available on the page.
+Two additional commands (`Bookmarklet: Create HTML Link With jQuery` and `Bookmarklet: Create JavaScript With jQuery`) can be used to create the respective HTML link or just the JavaScript code with the additional feature or loading the jQuery library if it's not already available on the page.
 
-The jQuery library will be loaded from the Google CDN. And yes, I know that the capitalization of _jQuery_ is not correct in the command palette and configuration options - this is a limitation in the way Atom creates these options.
+The jQuery library will be loaded from the Google CDN.
 
 Configuration options can be used to specify which version of jQuery to use, and whether to include the minified version or not - see below for details.
 
@@ -38,8 +38,8 @@ Pressing `Ctrl-Alt-B` will generate the following bookmarklet:
 
 The package's configuration page has the following options. The _jQuery_ options are only used when one of the commands that include the jQuery library is executed.
 
-* `Jquery Version`: The version of jQuery to use, e.g. _1.11.0_. Defaults to _1_, which will load the latest stable release of jQuery 1.
-* `Use Minified Jquery`: Use the minified or unminified version of the jQuery library. Defaults to _true_, which will include the minified version.
+* `jQuery Version`: The version of jQuery to use, e.g. _1.11.0_. Defaults to _1_, which will load the latest stable release of jQuery 1.
+* `Use Minified jQuery`: Use the minified or unminified version of the jQuery library. Defaults to _true_, which will include the minified version.
 
 ## Install
 
