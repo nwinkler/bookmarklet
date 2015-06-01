@@ -1,5 +1,3 @@
-BookmarkletView = require './bookmarklet-view'
-
 uglify = require 'uglify-js'
 
 module.exports =
@@ -16,7 +14,6 @@ module.exports =
   bookmarkletView: null
 
   activate: (state) ->
-    @bookmarkletView = new BookmarkletView(state.bookmarkletViewState)
     @linkPrefix = '<a href=\"'
     @linkSuffix = '\">Click Me</a>'
     @header = 'javascript:(function(){'
@@ -51,11 +48,11 @@ module.exports =
 
     @useMinifiedJquery = atom.config.get 'bookmarklet.useMinifiedJquery'
 
-  deactivate: ->
-    @bookmarkletView.destroy()
+  notifySuccess: (message) ->
+    atom.notifications.addSuccess(message)
 
-  serialize: ->
-    bookmarkletViewState: @bookmarkletView.serialize()
+  notifyWarning: (message) ->
+    atom.notifications.addWarning(message)
 
   createJS: (jquery) ->
     @create( { link: false, jquery: jquery } )
@@ -103,7 +100,7 @@ module.exports =
       atom.clipboard.write(out)
 
       # Show a message to the user
-      @bookmarkletView.show('Copied bookmarklet to the clipboard', 'ok')
+      @notifySuccess 'Copied bookmarklet to the clipboard'
     else
       # Show a message to the user
-      @bookmarkletView.show('Bookmarklet only works for JavaScript files', 'error')
+      @notifyWarning 'Bookmarklet only works for JavaScript files'
