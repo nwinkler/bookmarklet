@@ -2,7 +2,7 @@
 
 Creates a shortened bookmarklet from your JavaScript code, optionally including the jQuery library.
 
-Pressing `Ctrl-Alt-B` will create a _JavaScript Bookmarklet_ in the form of an HTML link from your current editor's content. The bookmarklet code will be copied to your system clipboard.
+Selecting the *Bookmarklet > Create HTML Link* command will create a _JavaScript Bookmarklet_ in the form of an HTML link from your current editor's content. The bookmarklet code will be copied to your system clipboard.
 
 ![Bookmarklet in Action!](https://raw.githubusercontent.com/nwinkler/bookmarklet/master/bookmarklet.gif)
 
@@ -28,7 +28,7 @@ div.appendChild(text);
 document.body.appendChild(div);
 ```
 
-Pressing `Ctrl-Alt-B` will generate the following bookmarklet:
+The *Bookmarklet > Create HTML Link* command will generate the following bookmarklet:
 
 ```html
 <a href="javascript:(function(){var%20div%3Ddocument.createElement(%22div%22)%3Bdiv.setAttribute(%22foo%22%2C%22bar%22)%3Bvar%20text%3Ddocument.createTextNode(%22This%20was%20added%20using%20the%20'Bookmarklet'%20%26%20Atom.io%3F!%22)%3Bdiv.appendChild(text)%2Cdocument.body.appendChild(div)%3B})();">Click Me</a>
@@ -40,6 +40,15 @@ The package's configuration page has the following options. The _jQuery_ options
 
 * `jQuery Version`: The version of jQuery to use, e.g. _1.11.0_. Defaults to _1_, which will load the latest stable release of jQuery 1.
 * `Use Minified jQuery`: Use the minified or unminified version of the jQuery library. Defaults to _true_, which will include the minified version.
+
+## Keybinding
+
+The Bookmarklet package does not define a default keybinding. To add one, use the following snippet in your local `~/.atom/keymap.cson` file:
+
+```
+'atom-text-editor:not(.mini)':
+  'ctrl-alt-b': 'bookmarklet:create-link'
+```
 
 ## Install
 
