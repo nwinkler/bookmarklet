@@ -4,7 +4,7 @@
   "author": {
     "name": "Nils Winkler"
   },
-  "version": "0.6.1",
+  "version": "0.7.0",
   "private": true,
   "description": "Creates a shortened bookmarklet from your JavaScript code, optionally including the jQuery library.",
   "activationCommands": {
